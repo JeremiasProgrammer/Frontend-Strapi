@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={inter.className}>
+            <body className="bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
                 <NextTopLoader color="#000" />
                 <main className="container mx-auto max-w-3xl">{children}</main>
             </body>
