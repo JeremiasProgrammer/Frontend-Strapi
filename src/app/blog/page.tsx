@@ -4,7 +4,7 @@ import Pagination from "@/components/Pagination";
 import { fetchApi } from "@/helpers/fetch-api";
 import { Post } from "@/interfaces/post";
 
-const getPosts = async (page = 1, pageSize = 4) => {
+const getPosts = async (page = 1, pageSize = 2) => {
     const path = "/posts";
     const urlParamsObject = {
         populate: "*",

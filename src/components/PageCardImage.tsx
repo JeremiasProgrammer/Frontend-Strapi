@@ -12,7 +12,7 @@ const PageCardImage = ({ post }: Props) => {
     const { url, width, height } = image.data.attributes.formats.medium;
 
     return (
-        <div className="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div className="bg-gray-800 border border-gray-700 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <Link href={`/blog/${slug}`}>
                 <Image
                     className="rounded-t-lg w-full"

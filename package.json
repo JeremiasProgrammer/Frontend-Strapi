@@ -9,12 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
+    "flowbite": "^2.4.1",
+    "flowbite-react": "^0.10.1",
+    "framer-motion": "^11.3.17",
     "next": "14.2.5",
     "next-mdx-remote": "^5.0.0",
     "nextjs-toploader": "^1.6.12",
     "qs": "^6.12.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "tailwind-merge": "^2.4.0"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.13",

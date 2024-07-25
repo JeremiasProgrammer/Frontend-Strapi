@@ -1,3 +1,4 @@
+import { cn } from "@/helpers/classnames";
 import Link from "next/link";
 
 interface Props {
@@ -22,25 +23,28 @@ const Pagination = ({ pagination }: Props) => {
         "px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white";
 
     return (
-        <nav aria-label="Page navigation example">
-            <ul className="inline-flex -space-x-px">
-                <li key={page}>
+        <nav
+            aria-label="Page navigation example"
+            className="text-center"
+        >
+            <ul className="inline-flex -space-x-px text-center">
+                <li>
                     <Link
                         href={
                             page === 1
                                 ? `/blog?page=${page}`
                                 : `/blog?page=${page - 1}`
                         }
-                        className={`${classPrevious} ${
-                            page === 1 ? "opacity-50 pointer-events-none" : ""
-                        }`}
+                        className={cn(classPrevious, {
+                            "opacity-50 pointer-events-none": page === 1,
+                        })}
                     >
                         Previous
                     </Link>
                 </li>
 
                 {Array.from({ length: pageCount }).map((_, index) => (
-                    <li key={page}>
+                    <li>
                         <Link
                             href={`/blog?page=${index + 1}`}
                             className={
@@ -61,11 +65,10 @@ const Pagination = ({ pagination }: Props) => {
                                 ? `/blog?page=${page}`
                                 : `/blog?page=${page + 1}`
                         }
-                        className={`${classNext} ${
-                            page === pageCount
-                                ? "opacity-50 pointer-events-none"
-                                : ""
-                        }`}
+                        className={cn(classNext, {
+                            "opacity-50 pointer-events-none":
+                                page === pageCount,
+                        })}
                     >
                         Next
                     </Link>
