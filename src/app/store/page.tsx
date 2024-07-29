@@ -4,6 +4,10 @@ import Pagination from "@/components/Pagination";
 import { fetchApi } from "@/helpers/fetch-api";
 import { Book } from "@/interfaces/book";
 
+interface StoreProps {
+    books: Book[];
+}
+
 const getBooks = async (page = 1, pageSize = 1) => {
     const path = "/books";
     const urlParamsObject = {
@@ -22,7 +26,10 @@ const getBooks = async (page = 1, pageSize = 1) => {
     return { data: data, pagination: meta.pagination };
 };
 
-const Store = async ({ searchParams }: { searchParams: { page?: string } }) => {
+const Store = async (
+    { searchParams }: { searchParams: { page?: string } },
+    { books }: StoreProps
+) => {
     const { page } = searchParams;
     let pageNumber = page ? parseInt(page) : 1;
     if (isNaN(pageNumber) || pageNumber < 1) {
@@ -39,7 +46,7 @@ const Store = async ({ searchParams }: { searchParams: { page?: string } }) => {
             <PageHeader text="Book Store" />
             <Pagination pagination={pagination} />
             <section className="grid grid-cols-1 gap-4">
-                {data.map((book: Book) => (
+                {books.map((book) => (
                     <div>
                         <PageCardStore
                             key={book.id}
