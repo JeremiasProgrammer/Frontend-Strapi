@@ -21,7 +21,10 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="es">
+        <html
+            lang="es"
+            className="bg-slate-800"
+        >
             <body className={inter.className}>
                 <NextTopLoader color="#000" />
                 <main className="container mx-auto max-w-2xl mt-4 space-y-4 px-6">
